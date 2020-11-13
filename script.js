@@ -1,28 +1,62 @@
-// let sides = [];
-let kac;
-document.querySelector(".btn-grad").addEventListener("click", trial);
 
-var z;
-function trial() {
-  let sum = 0;
-  let first = document.getElementById("firstSide").value;
-  let second = document.getElementById("secondSide").value;
-  let third = document.getElementById("thirdSide").value;
-  console.log(first);
-  console.log(second);
-  console.log(third);
-  let sides = [parseInt(first), parseInt(second), parseInt(third)];
-  console.log(sides[0]);
-
-  for (x of sides) {
-    sum += x;
+class Triangle {
+  constructor(firstside,secondside,thirdside){
+    this.first= firstside,
+    this.second= secondside,
+    this.third= thirdside
   }
-  console.log(sum);
 }
 
-// -----------------------------------------------------------------
+// let sides = [];
+// let kac;
 
-const outcome = document.getElementsByClassName('outcome');
+// 
+const first = document.getElementById("firstSide").value;
+const second = document.getElementById("secondSide").value;
+const third = document.getElementById("thirdSide").value;
+
+// console.log(first);
+// console.log(second);
+// console.log(third);
+
+const inputTriangle = new Triangle (first,second,third);
+// console.log(inputTriangle.first);
+
+
+const outcome = document.getElementById('outcome');
+document.querySelector(".btn-grad").addEventListener("click", trial);
+
+function trial() {
+  let result;
+  let sum = 0;
+
+  if(inputTriangle.first){
+// Üçgen olma şartı
+  }
+  else if(inputTriangle.first==inputTriangle.second && inputTriangle.second==inputTriangle.third && inputTriangle.first==inputTriangle.third ){
+   result ='Eşkenar üçgen';
+ }
+ else if(inputTriangle.first ){
+// en az ikisi eşitse eşkenar
+result ='İkiz üçgen';
+ }
+ else if (inputTriangle.first){
+  //  üç kenarda farklı ise
+  result ='Çeşit kenar üçgen'
+ }
+
+  // let sides = [parseInt(first), parseInt(second), parseInt(third)];
+  // console.log(sides[0]);
+
+  // for (x of sides) {
+  //   sum += x;
+  // }
+  // console.log(sum);
+outcome.innerHTML = result;
+
+}
+
+
 
 
 
